@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cours de français (FLE) · Egor Ferrero</title>
+<meta name="description" content="Cours de français langue étrangère (FLE) : cours particuliers et en petit groupe, du niveau A1 à C2. Conversation, grammaire, préparation DELF/DALF.">
+
+<!--
+  ════════════════════════════════════════════════════════════════
+  PAGE À PERSONNALISER — cherchez les crochets [ ... ] et remplacez :
+    · Egor Ferrero                → votre nom / nom de l'activité
+    · egorferreropro@gmail.com  → votre adresse e-mail
+    · Les tarifs (section Tarifs)→ vos prix
+    · Les témoignages            → vrais retours d'élèves
+    · Le formulaire de contact   → voir la note "FORMULAIRE" plus bas
+  ════════════════════════════════════════════════════════════════
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --encre:#16233B;      /* bleu encre, texte & sections foncées */
+    --encre-2:#0F1A2E;    /* variante plus profonde */
+    --papier:#FAF7F0;     /* fond papier chaud */
+    --craie:#EFE9DC;      /* cartes / séparations douces */
+    --or:#C8912B;         /* accent doré, diacritiques & liens */
+    --or-vif:#E0A22B;     /* doré lumineux, sur fond foncé */
+    --gris:#54607A;       /* texte secondaire */
+    --trait:#DAD2C1;      /* filets */
+    --max:1140px;
+    --r:14px;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+  body{
+    font-family:'Karla',system-ui,sans-serif;
+    background:var(--papier);
+    color:var(--encre);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1,h2,h3{font-family:'Fraunces',Georgia,serif;font-weight:500;line-height:1.1;letter-spacing:-.01em}
+
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+
+  .wrap{max-width:var(--max);margin-inline:auto;padding-inline:24px}
+
+  /* Accessibilité : lien d'évitement + focus visible */
+  .skip{position:absolute;left:-999px;top:0;background:var(--encre);color:#fff;padding:10px 16px;z-index:200;border-radius:0 0 8px 0}
+  .skip:focus{left:0}
+  a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
+    outline:3px solid var(--or);outline-offset:3px;border-radius:4px;
+  }
+
+  /* Le mot « français » et ses accents : signature de la page */
+  .accent{color:var(--or);font-style:italic}
+  .diacritiques{
+    font-family:'Fraunces',serif;color:var(--or);
+    letter-spacing:.35em;font-size:.95rem;opacity:.85;
+    text-transform:none;
+  }
+
+  /* ── Boutons ── */
+  .btn{
+    display:inline-flex;align-items:center;gap:.5em;
+    font-weight:600;font-size:1rem;
+    padding:14px 26px;border-radius:999px;border:2px solid transparent;
+    cursor:pointer;transition:transform .15s ease, background .2s, color .2s;
+  }
+  .btn-primary{background:var(--encre);color:var(--papier)}
+  .btn-primary:hover{background:var(--or);color:var(--encre);transform:translateY(-2px)}
+  .btn-ghost{border-color:var(--encre);color:var(--encre)}
+  .btn-ghost:hover{background:var(--encre);color:var(--papier)}
+  .btn-light{background:var(--or-vif);color:var(--encre-2)}
+  .btn-light:hover{transform:translateY(-2px);filter:brightness(1.05)}
+
+  /* ── En-tête / navigation ── */
+  header.site{position:sticky;top:0;z-index:100;background:rgba(250,247,240,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--trait)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+  .brand{font-family:'Fraunces',serif;font-size:1.35rem;font-weight:600;letter-spacing:-.02em}
+  .brand span{color:var(--or)}
+  .nav-links{display:flex;gap:30px;align-items:center}
+  .nav-links a{font-weight:500;font-size:.98rem;position:relative}
+  .nav-links a:not(.btn)::after{content:"";position:absolute;left:0;bottom:-4px;width:0;height:2px;background:var(--or);transition:width .2s}
+  .nav-links a:not(.btn):hover::after{width:100%}
+  .menu-toggle{display:none;background:none;border:0;cursor:pointer;font-size:1.6rem;color:var(--encre)}
+
+  /* ── Héros ── */
+  .hero{position:relative;overflow:hidden}
+  .hero .wrap{padding-top:90px;padding-bottom:100px}
+  .eyebrow{text-transform:uppercase;letter-spacing:.22em;font-size:.78rem;font-weight:700;color:var(--gris)}
+  .hero h1{font-size:clamp(2.7rem,7vw,5.3rem);margin:22px 0 26px;max-width:14ch}
+  .hero p.lead{font-size:clamp(1.05rem,2.2vw,1.3rem);color:var(--gris);max-width:52ch;margin-bottom:36px}
+  .hero-cta{display:flex;gap:16px;flex-wrap:wrap}
+  .hero-marks{margin-top:56px}
+
+  /* ── Sections génériques ── */
+  section{padding-block:84px}
+  .sec-head{max-width:56ch;margin-bottom:52px}
+  .sec-head .eyebrow{color:var(--or)}
+  .sec-head h2{font-size:clamp(2rem,4vw,2.9rem);margin:14px 0 16px}
+  .sec-head p{color:var(--gris);font-size:1.08rem}
+
+  /* ── Méthode : 3 piliers ── */
+  .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+  .pillar{background:#fff;border:1px solid var(--trait);border-radius:var(--r);padding:32px}
+  .pillar .num{font-family:'Fraunces',serif;font-style:italic;color:var(--or);font-size:1.4rem;margin-bottom:10px}
+  .pillar h3{font-size:1.35rem;margin-bottom:10px}
+  .pillar p{color:var(--gris);font-size:1rem}
+
+  /* ── Niveaux (parcours A1 → C2) ── */
+  .niveaux{background:var(--encre);color:var(--papier)}
+  .niveaux .sec-head .eyebrow{color:var(--or-vif)}
+  .niveaux .sec-head p{color:#c5cbd8}
+  .levels{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.12);border-radius:var(--r);overflow:hidden}
+  .level{background:var(--encre);padding:30px 28px;transition:background .2s}
+  .level:hover{background:var(--encre-2)}
+  .level .code{font-family:'Fraunces',serif;font-size:2.4rem;color:var(--or-vif);line-height:1}
+  .level .tag{display:block;font-weight:700;margin:14px 0 6px;font-size:1.05rem}
+  .level p{color:#c5cbd8;font-size:.96rem}
+
+  /* ── Formules / offres ── */
+  .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+  .card{background:#fff;border:1px solid var(--trait);border-radius:var(--r);padding:30px 30px 34px;position:relative}
+  .card .k{font-family:'Fraunces',serif;color:var(--or);font-style:italic;font-size:1.1rem}
+  .card h3{font-size:1.5rem;margin:8px 0 12px}
+  .card p{color:var(--gris)}
+
+  /* ── Tarifs ── */
+  .tarifs{background:var(--craie)}
+  .grid-tarifs{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .price{background:#fff;border:1px solid var(--trait);border-radius:var(--r);padding:34px 28px;text-align:center;display:flex;flex-direction:column}
+  .price.featured{border:2px solid var(--or);box-shadow:0 14px 40px rgba(22,35,59,.10)}
+  .price .badge{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--or);margin-bottom:8px}
+  .price h3{font-size:1.35rem}
+  .price .amount{font-family:'Fraunces',serif;font-size:2.9rem;margin:16px 0 4px}
+  .price .amount small{font-size:.95rem;color:var(--gris);font-family:'Karla',sans-serif}
+  .price ul{list-style:none;text-align:left;margin:22px 0 26px;display:grid;gap:10px}
+  .price li{padding-left:26px;position:relative;color:var(--gris);font-size:.98rem}
+  .price li::before{content:"✓";position:absolute;left:0;color:var(--or);font-weight:700}
+  .price .btn{margin-top:auto;justify-content:center;width:100%}
+
+  /* ── Témoignages ── */
+  .quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .quote{background:#fff;border:1px solid var(--trait);border-radius:var(--r);padding:30px}
+  .quote .mark{font-family:'Fraunces',serif;font-size:3rem;color:var(--or);line-height:.6;height:.5em}
+  .quote p{font-size:1.05rem;margin:14px 0 18px}
+  .quote .who{font-weight:700;font-size:.95rem}
+  .quote .who span{display:block;font-weight:400;color:var(--gris);font-size:.88rem}
+
+  /* ── Contact ── */
+  .contact{background:var(--encre);color:var(--papier)}
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+  .contact .sec-head .eyebrow{color:var(--or-vif)}
+  .contact h2{font-size:clamp(2rem,4vw,2.9rem)}
+  .contact .lead{color:#c5cbd8;font-size:1.1rem;margin:14px 0 26px}
+  .contact-info{display:grid;gap:16px;margin-top:10px}
+  .contact-info a{font-weight:600;color:var(--or-vif);border-bottom:1px solid transparent}
+  .contact-info a:hover{border-color:var(--or-vif)}
+  form{display:grid;gap:16px}
+  label{font-size:.9rem;font-weight:600;display:block;margin-bottom:6px}
+  input,textarea{
+    width:100%;font-family:inherit;font-size:1rem;padding:13px 15px;
+    border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.06);
+    color:var(--papier);border-radius:10px;
+  }
+  input::placeholder,textarea::placeholder{color:#8b97ad}
+  form .btn{margin-top:6px;justify-content:center}
+
+  /* ── Pied de page ── */
+  footer.site{background:var(--encre-2);color:#aeb7c8;padding-block:44px}
+  .foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px}
+  .foot .brand{color:var(--papier)}
+  .foot a{font-size:.95rem}
+  .foot a:hover{color:var(--or-vif)}
+  .foot-links{display:flex;gap:24px;flex-wrap:wrap}
+
+  /* ── Responsive ── */
+  @media (max-width:860px){
+    .pillars,.levels,.cards,.grid-tarifs,.quotes,.contact-grid{grid-template-columns:1fr}
+    .levels{gap:1px}
+    .menu-toggle{display:block}
+    .nav-links{
+      position:absolute;top:72px;left:0;right:0;
+      background:var(--papier);border-bottom:1px solid var(--trait);
+      flex-direction:column;align-items:stretch;gap:0;
+      padding:8px 24px 20px;display:none;
+    }
+    .nav-links.open{display:flex}
+    .nav-links a{padding:12px 0;border-bottom:1px solid var(--trait)}
+    .nav-links a.btn{margin-top:12px;justify-content:center;border-bottom:2px solid var(--encre)}
+    section{padding-block:60px}
+  }
+  @media (max-width:560px){
+    .levels{grid-template-columns:1fr}
+  }
+</style>
+</head>
+
+<body>
+<a class="skip" href="#contenu">Aller au contenu</a>
+
+<!-- ══════════ EN-TÊTE ══════════ -->
+<header class="site">
+  <div class="wrap nav">
+    <a class="brand" href="#accueil">Egor Ferrero<span>.</span></a>
+    <nav class="nav-links" id="menu" aria-label="Navigation principale">
+      <a href="#methode">La méthode</a>
+      <a href="#niveaux">Niveaux</a>
+      <a href="#formules">Formules</a>
+      <a href="#tarifs">Tarifs</a>
+      <a class="btn btn-primary" href="#contact">Réserver un essai</a>
+    </nav>
+    <button class="menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="menu">☰</button>
+  </div>
+</header>
+
+<main id="contenu">
+
+<!-- ══════════ HÉROS ══════════ -->
+<section class="hero" id="accueil" aria-labelledby="titre-hero">
+  <div class="wrap">
+    <p class="eyebrow">Cours de français · FLE</p>
+    <h1 id="titre-hero">Apprenez le <span class="accent">français</span> à votre rythme.</h1>
+    <p class="lead">Cours particuliers et en petit groupe, du niveau débutant (A1) à la maîtrise (C2).
+       Conversation, grammaire vivante et préparation aux examens DELF, DALF et TCF.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="#contact">Réserver un cours d'essai</a>
+      <a class="btn btn-ghost" href="#methode">Découvrir la méthode</a>
+    </div>
+    <p class="diacritiques hero-marks" aria-hidden="true">é&nbsp;&nbsp;è&nbsp;&nbsp;ê&nbsp;&nbsp;ë&nbsp;&nbsp;à&nbsp;&nbsp;â&nbsp;&nbsp;ç&nbsp;&nbsp;î&nbsp;&nbsp;ô&nbsp;&nbsp;ù&nbsp;&nbsp;û</p>
+  </div>
+</section>
+
+<!-- ══════════ MÉTHODE ══════════ -->
+<section id="methode" aria-labelledby="titre-methode">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">La méthode</p>
+      <h2 id="titre-methode">Parler d'abord, comprendre ensuite.</h2>
+      <p>Une approche communicative et sur mesure : on part de vos objectifs réels — voyager, travailler,
+         passer un examen — pour construire des cours où vous parlez dès la première minute.</p>
+    </div>
+    <div class="pillars">
+      <article class="pillar">
+        <div class="num">i.</div>
+        <h3>L'oral en priorité</h3>
+        <p>La grammaire au service de la parole. Vous vous exprimez à chaque séance, sans peur de l'erreur, avec des corrections bienveillantes.</p>
+      </article>
+      <article class="pillar">
+        <div class="num">ii.</div>
+        <h3>Sur mesure</h3>
+        <p>Un programme adapté à votre niveau, votre rythme et votre motivation. Débutant complet ou perfectionnement : le cours s'ajuste à vous.</p>
+      </article>
+      <article class="pillar">
+        <div class="num">iii.</div>
+        <h3>Une culture vivante</h3>
+        <p>Chansons, actualités, cinéma, expressions du quotidien : on apprend le français tel qu'il se parle vraiment aujourd'hui.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ NIVEAUX (parcours A1 → C2) ══════════ -->
+<section class="niveaux" id="niveaux" aria-labelledby="titre-niveaux">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Le parcours</p>
+      <h2 id="titre-niveaux">Du premier mot à l'aisance totale.</h2>
+      <p>Les six niveaux du Cadre européen commun de référence (CECRL). On identifie ensemble votre point de départ dès le cours d'essai.</p>
+    </div>
+    <div class="levels">
+      <div class="level"><div class="code">A1</div><span class="tag">Débutant</span><p>Se présenter, poser des questions simples, gérer les situations du quotidien.</p></div>
+      <div class="level"><div class="code">A2</div><span class="tag">Élémentaire</span><p>Échanger sur des sujets familiers, raconter au passé, se débrouiller en voyage.</p></div>
+      <div class="level"><div class="code">B1</div><span class="tag">Intermédiaire</span><p>Tenir une conversation, donner son avis, se débrouiller seul dans la plupart des situations.</p></div>
+      <div class="level"><div class="code">B2</div><span class="tag">Avancé</span><p>Argumenter, nuancer, comprendre des textes complexes et le français des médias.</p></div>
+      <div class="level"><div class="code">C1</div><span class="tag">Autonome</span><p>S'exprimer avec spontanéité et précision, à l'oral comme à l'écrit, dans un cadre pro.</p></div>
+      <div class="level"><div class="code">C2</div><span class="tag">Maîtrise</span><p>Comprendre et manier toutes les subtilités, y compris l'implicite et l'humour.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ FORMULES ══════════ -->
+<section id="formules" aria-labelledby="titre-formules">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Les formules</p>
+      <h2 id="titre-formules">Un format pour chaque objectif.</h2>
+    </div>
+    <div class="cards">
+      <article class="card">
+        <p class="k">Individuel</p>
+        <h3>Cours particulier</h3>
+        <p>Un accompagnement 100 % personnalisé, en visio ou en présentiel. Le format le plus efficace pour progresser vite.</p>
+      </article>
+      <article class="card">
+        <p class="k">À plusieurs</p>
+        <h3>Petit groupe (2 à 4)</h3>
+        <p>Apprendre à moindre coût dans une dynamique conviviale, avec des interactions entre apprenants de niveau proche.</p>
+      </article>
+      <article class="card">
+        <p class="k">Fluidité</p>
+        <h3>Atelier conversation</h3>
+        <p>Une heure de pratique orale autour de thèmes d'actualité et de culture, pour gagner en aisance et en confiance.</p>
+      </article>
+      <article class="card">
+        <p class="k">Objectif examen</p>
+        <h3>Préparation DELF / DALF / TCF</h3>
+        <p>Méthodologie, entraînement aux quatre épreuves et examens blancs pour aborder le jour J sereinement.</p>
+      </article>
+      <article class="card">
+        <p class="k">Au travail</p>
+        <h3>Français professionnel</h3>
+        <p>E-mails, réunions, présentations, entretiens : le vocabulaire et les codes du monde du travail francophone.</p>
+      </article>
+      <article class="card">
+        <p class="k">Sur demande</p>
+        <h3>Français pour enfants &amp; ados</h3>
+        <p>Des séances ludiques et adaptées à l'âge, pour éveiller le goût de la langue et soutenir la scolarité.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ TARIFS ══════════ -->
+<section class="tarifs" id="tarifs" aria-labelledby="titre-tarifs">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Tarifs</p>
+      <h2 id="titre-tarifs">Simple et transparent.</h2>
+      <p>Premier cours d'essai à tarif réduit, sans engagement. Forfaits dégressifs pour aller plus loin.</p>
+    </div>
+    <div class="grid-tarifs">
+      <div class="price">
+        <span class="badge">Pour commencer</span>
+        <h3>Cours d'essai</h3>
+        <div class="amount">[15]€ <small>/ 1 h</small></div>
+        <ul>
+          <li>Bilan de votre niveau</li>
+          <li>Définition des objectifs</li>
+          <li>Sans engagement</li>
+        </ul>
+        <a class="btn btn-ghost" href="#contact">Je réserve</a>
+      </div>
+      <div class="price featured">
+        <span class="badge">Le plus choisi</span>
+        <h3>Cours particulier</h3>
+        <div class="amount">[30]€ <small>/ 1 h</small></div>
+        <ul>
+          <li>Programme sur mesure</li>
+          <li>Visio ou présentiel</li>
+          <li>Supports fournis</li>
+        </ul>
+        <a class="btn btn-primary" href="#contact">Je réserve</a>
+      </div>
+      <div class="price">
+        <span class="badge">Le plus avantageux</span>
+        <h3>Forfait 10 cours</h3>
+        <div class="amount">[270]€ <small>/ 10 h</small></div>
+        <ul>
+          <li>Soit [27]€ l'heure</li>
+          <li>Suivi de progression</li>
+          <li>Valable 4 mois</li>
+        </ul>
+        <a class="btn btn-ghost" href="#contact">Je réserve</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ TÉMOIGNAGES ══════════ -->
+<section id="temoignages" aria-labelledby="titre-temoignages">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Ils ont progressé</p>
+      <h2 id="titre-temoignages">Ce que disent mes élèves.</h2>
+    </div>
+    <div class="quotes">
+      <figure class="quote">
+        <div class="mark" aria-hidden="true">“</div>
+        <blockquote><p>En trois mois, j'ai osé parler français au travail. Les cours sont vivants et jamais ennuyeux.</p></blockquote>
+        <figcaption class="who">Alicia <span>Niveau B1 · Objectif professionnel</span></figcaption>
+      </figure>
+      <figure class="quote">
+        <div class="mark" aria-hidden="true">“</div>
+        <blockquote><p>J'ai obtenu mon DELF B2 du premier coup. La préparation était précise et rassurante.</p></blockquote>
+        <figcaption class="who">Lucas <span>Préparation DELF B2</span></figcaption>
+      </figure>
+      <figure class="quote">
+        <div class="mark" aria-hidden="true">“</div>
+        <blockquote><p>Débutante complète, je tiens aujourd'hui une conversation. Un accompagnement patient et efficace.</p></blockquote>
+        <figcaption class="who">Julia <span>Niveau A1 → A2</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ CONTACT ══════════ -->
+<section class="contact" id="contact" aria-labelledby="titre-contact">
+  <div class="wrap contact-grid">
+    <div>
+      <p class="eyebrow">Contact</p>
+      <h2 id="titre-contact">Réservons votre cours d'essai.</h2>
+      <p class="lead">Écrivez-moi votre niveau, votre objectif et vos disponibilités. Je vous réponds sous 24 h.</p>
+      <div class="contact-info">
+        <p>✉︎ <a href="mailto:egorferreropro@gmail.com">egorferreropro@gmail.com</a></p>
+        <p>Cours en visio partout dans le monde, ou en présentiel <a href="#accueil">[votre ville]</a>.</p>
+      </div>
+    </div>
+
+    <!--
+      FORMULAIRE : GitHub Pages est un site statique et ne peut pas envoyer d'e-mail seul.
+      Solution gratuite recommandée : Formspree (https://formspree.io)
+        1. Créez un compte, créez un formulaire, copiez son identifiant.
+        2. Remplacez VOTRE_ID ci-dessous dans action="...".
+      Sans configuration, le bouton bascule automatiquement sur votre e-mail (mailto).
+    -->
+    <form action="https://formspree.io/f/VOTRE_ID" method="POST" id="contact-form">
+      <div>
+        <label for="nom">Votre nom</label>
+        <input type="text" id="nom" name="nom" placeholder="Prénom et nom" required>
+      </div>
+      <div>
+        <label for="email">Votre e-mail</label>
+        <input type="email" id="email" name="email" placeholder="vous@exemple.com" required>
+      </div>
+      <div>
+        <label for="message">Votre message</label>
+        <textarea id="message" name="message" rows="4" placeholder="Niveau, objectif, disponibilités…" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-light">Envoyer ma demande</button>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<!-- ══════════ PIED DE PAGE ══════════ -->
+<footer class="site">
+  <div class="wrap foot">
+    <a class="brand" href="#accueil">Egor Ferrero<span style="color:var(--or-vif)">.</span></a>
+    <nav class="foot-links" aria-label="Liens de pied de page">
+      <a href="#methode">Méthode</a>
+      <a href="#niveaux">Niveaux</a>
+      <a href="#formules">Formules</a>
+      <a href="#tarifs">Tarifs</a>
+      <a href="mailto:egorferreropro@gmail.com">Contact</a>
+    </nav>
+    <p>© <span id="annee"></span> Egor Ferrero · Cours de français (FLE)</p>
+  </div>
+</footer>
+
+<script>
+  // Menu mobile
+  const toggle = document.querySelector('.menu-toggle');
+  const menu = document.getElementById('menu');
+  toggle.addEventListener('click', () => {
+    const open = menu.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open);
+    toggle.textContent = open ? '✕' : '☰';
+  });
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    menu.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.textContent = '☰';
+  }));
+
+  // Année automatique
+  document.getElementById('annee').textContent = new Date().getFullYear();
+
+  // Repli mailto si le formulaire n'est pas encore configuré avec Formspree
+  const form = document.getElementById('contact-form');
+  if (form.getAttribute('action').includes('VOTRE_ID')) {
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const email = 'egorferreropro@gmail.com';
+      const nom = encodeURIComponent(document.getElementById('nom').value);
+      const corps = encodeURIComponent(document.getElementById('message').value + '\n\n— ' + document.getElementById('nom').value);
+      window.location.href = `mailto:${email}?subject=Demande de cours de français — ${nom}&body=${corps}`;
+    });
+  }
+</script>
+</body>
+</html>
